@@ -13,7 +13,7 @@ export default function LocationDetail() {
     const locations = localStorage.getItem('character-by-locations')
     if (locations) {
       const json: Array<CharacterByLocation> = JSON.parse(locations)
-      const char = json.find(loc => loc.location === name)
+      const char = json.find(loc => loc.location === decodeURIComponent(name as string))
       setCharacterByLocation(char)
     }
   }, [name])
